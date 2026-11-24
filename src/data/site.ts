@@ -1,5 +1,5 @@
 /** URL pública de producción. Se puede sustituir con NEXT_PUBLIC_SITE_URL al compilar. */
-export const PRODUCTION_URL = "https://possible-cr.vercel.app";
+export const PRODUCTION_URL = "https://possible-studio.vercel.app";
 
 export const siteConfig = {
   name: "Possible Studio",
