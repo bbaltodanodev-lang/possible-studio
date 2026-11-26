@@ -4,12 +4,12 @@ import { useLanguage } from "@/i18n/provider";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { DynamicIcon } from "@/components/ui/Icons";
+import { featureIcon } from "@/lib/feature-icon";
 import { FinalCta } from "@/components/sections/FinalCta";
 import { ContactSection } from "@/components/sections/ContactSection";
 import { extraServices } from "@/data/extra-services";
 import type { ExtraServiceSlug } from "@/data/extra-services";
 
-const featureIcons = ["layout", "trendingUp", "users", "shield", "barChart"] as const;
 
 /** Página de servicio con la misma estructura que /pos: hero, beneficios, alcances y contacto. */
 export function ServiceLanding({ slug }: { slug: ExtraServiceSlug }) {
@@ -55,7 +55,7 @@ export function ServiceLanding({ slug }: { slug: ExtraServiceSlug }) {
                 {i === 2 && <p className="mt-4 border-l-2 border-neon-pink/70 pl-3 text-sm font-medium text-brand-100">{t.customNote}</p>}
                 <ul className="mt-7 flex-1 space-y-3 text-sm text-body">
                   {features.map((feature, featureIndex) => (
-                    <li key={feature} className="flex items-center gap-3">{i === 0 ? <span aria-hidden="true" className="size-1.5 shrink-0 rounded-full bg-white/40" /> : <span className={`grid size-7 shrink-0 place-items-center rounded-lg ${i === 2 ? "bg-brand-gradient text-white" : "bg-brand-tint text-brand-300"}`}><DynamicIcon name={i === 2 ? "check" : featureIcons[featureIndex % featureIcons.length]} className="size-3.5" /></span>}<span>{feature}</span></li>
+                    <li key={feature} className="flex items-center gap-3"><span className="grid size-6 shrink-0 place-items-center rounded-lg bg-brand-tint text-brand-300"><DynamicIcon name={featureIcon(feature, featureIndex)} className="size-3.5" /></span><span>{feature}</span></li>
                   ))}
                 </ul>
                 <Button href="/#contacto" className="mt-8 w-full justify-center" variant={i > 0 ? "primary" : "secondary"}>{i === 2 ? t.customCta : t.cta}<DynamicIcon name="arrowRight" className="size-4" /></Button>
