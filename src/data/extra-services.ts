@@ -40,7 +40,7 @@ export const extraServices: Record<ExtraServiceSlug, Record<Locale, ExtraService
       tiers: [
         {
           name: "Inicio",
-          price: "$199.99",
+          price: "$119.99",
           note: "precio de referencia",
           delivery: "1 – 2 semanas",
           description: "Lo esencial para ordenar tus clientes y oportunidades de venta.",
@@ -57,7 +57,7 @@ export const extraServices: Record<ExtraServiceSlug, Record<Locale, ExtraService
         },
         {
           name: "Crecimiento",
-          price: "$499.99",
+          price: "$349.99",
           note: "precio de referencia",
           delivery: "2 – 4 semanas",
           description: "Más control y reportes para equipos de venta en crecimiento.",
@@ -122,7 +122,7 @@ export const extraServices: Record<ExtraServiceSlug, Record<Locale, ExtraService
       tiers: [
         {
           name: "Starter",
-          price: "$199.99",
+          price: "$119.99",
           note: "reference price",
           delivery: "1 – 2 weeks",
           description: "The essentials to organize customers and sales opportunities.",
@@ -139,7 +139,7 @@ export const extraServices: Record<ExtraServiceSlug, Record<Locale, ExtraService
         },
         {
           name: "Growth",
-          price: "$499.99",
+          price: "$349.99",
           note: "reference price",
           delivery: "2 – 4 weeks",
           description: "More control and reports for growing sales teams.",
@@ -222,7 +222,7 @@ export const extraServices: Record<ExtraServiceSlug, Record<Locale, ExtraService
         },
         {
           name: "Crecimiento",
-          price: "$499.99",
+          price: "$349.99",
           note: "precio de referencia",
           delivery: "2 – 3 semanas",
           description: "Más canales de atención y avisos para tus clientes.",
@@ -239,7 +239,7 @@ export const extraServices: Record<ExtraServiceSlug, Record<Locale, ExtraService
         },
         {
           name: "A la medida",
-          price: "$799+",
+          price: "$600+",
           note: "según requerimientos",
           delivery: "3 – 6 semanas",
           description: "Una automatización conectada con los procesos de tu negocio.",
@@ -301,7 +301,7 @@ export const extraServices: Record<ExtraServiceSlug, Record<Locale, ExtraService
         },
         {
           name: "Growth",
-          price: "$499.99",
+          price: "$349.99",
           note: "reference price",
           delivery: "2 – 3 weeks",
           description: "More service options and notifications for your customers.",
@@ -318,7 +318,7 @@ export const extraServices: Record<ExtraServiceSlug, Record<Locale, ExtraService
         },
         {
           name: "Custom",
-          price: "$799+",
+          price: "$600+",
           note: "based on requirements",
           delivery: "3 – 6 weeks",
           description: "Automation connected to your business processes.",
