@@ -22,10 +22,7 @@ export function SolutionsSection() {
       <Container>
         <div className="mx-auto max-w-5xl text-center">
           <h1>
-            <span className="block text-xs font-semibold uppercase tracking-[0.14em] text-brand-gradient">
-              {t.solutions.eyebrow}
-            </span>
-            <span className="mt-3 block text-balance text-3xl font-bold tracking-tight text-white sm:text-4xl">
+            <span className="block text-balance text-3xl font-bold tracking-tight text-white sm:text-4xl">
               {t.solutions.titleTop}
             </span>
           </h1>
