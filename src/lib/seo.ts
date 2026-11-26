@@ -101,13 +101,14 @@ export function websiteSchema() {
 function serviceNode(path: keyof typeof servicePageSeo) {
   const { title, description, serviceType } = servicePageSeo[path];
   const url = `${siteConfig.url}/${path}`;
-  const scopes = path in extraServices ? extraServices[path as keyof typeof extraServices].es.scopes : [];
-  const offers = scopes.map(([name, price]) => ({
-    "@type": "Offer",
-    name,
-    price: price.replace(/[^0-9.]/g, ""),
-    priceCurrency: "USD",
-  }));
+  const tiers = path in extraServices ? extraServices[path as keyof typeof extraServices].es.tiers : [];
+  // "$799+" es un precio desde: se publica como mínimo, no como precio fijo.
+  const offers = tiers.map(({ name, price }) => {
+    const amount = price.replace(/[^0-9.]/g, "");
+    return price.endsWith("+")
+      ? { "@type": "Offer", name, priceCurrency: "USD", priceSpecification: { "@type": "PriceSpecification", minPrice: amount, priceCurrency: "USD" } }
+      : { "@type": "Offer", name, price: amount, priceCurrency: "USD" };
+  });
   return {
     ...(offers.length > 0 ? { offers } : {}),
     "@type": "Service",

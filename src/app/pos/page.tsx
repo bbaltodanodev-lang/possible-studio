@@ -4,7 +4,7 @@ import { useLanguage } from "@/i18n/provider";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { DynamicIcon } from "@/components/ui/Icons";
-import { featureIcon } from "@/lib/feature-icon";
+import { PlanTiers } from "@/components/sections/PlanTiers";
 import { FinalCta } from "@/components/sections/FinalCta";
 import { ContactSection } from "@/components/sections/ContactSection";
 
@@ -26,11 +26,67 @@ const content = {
       ["globe", "Acceso desde cualquier lugar", "Tu operación disponible en computadora, tablet o teléfono."],
     ] as const,
     scopeTitle: "Elige el alcance de tu sistema",
-    scopes: [
-      ["Inicio", "$299", "Operación esencial para comenzar a vender con orden y control.", ["Punto de venta ágil", "Catálogo centralizado de productos", "Control de existencias", "Cierres de caja precisos", "Instalación en cualquier computadora", "Acceso seguro desde navegador"]],
-      ["Crecimiento", "$499", "Más visibilidad y control para negocios en expansión.", ["Gestión de clientes y proveedores", "Reportes comerciales detallados", "Control de compras y abastecimiento", "Usuarios y permisos por rol", "Alertas de inventario", "Instalación en varias máquinas", "Respaldo y sincronización de datos"]],
-      ["A la medida", "Cotización", "Una plataforma diseñada alrededor de los procesos específicos de tu negocio.", ["Facturación electrónica", "Integración con dispositivos y periféricos", "Módulos personalizados", "Automatización de procesos", "Soporte prioritario", "Despliegue en cualquier equipo", "Configuración de red y sucursales"]],
-    ] as const,
+    tiers: [
+      {
+        name: "Inicio",
+        price: "$299.99",
+        note: "precio de referencia",
+        delivery: "1 – 2 semanas",
+        description: "Operación esencial para comenzar a vender con orden y control.",
+        features: [
+          { icon: "layout", label: "Punto de venta ágil" },
+          { icon: "package", label: "Catálogo centralizado de productos" },
+          { icon: "box", label: "Control de existencias" },
+          { icon: "checkCircle", label: "Cierres de caja precisos" },
+          { icon: "search", label: "Búsqueda rápida de productos" },
+          { icon: "devices", label: "Instalación en cualquier computadora" },
+          { icon: "lock", label: "Acceso seguro desde navegador" },
+        ],
+      },
+      {
+        name: "Crecimiento",
+        price: "$499.99",
+        note: "precio de referencia",
+        delivery: "2 – 3 semanas",
+        description: "Más visibilidad y control para negocios en expansión.",
+        features: [
+          { icon: "layout", label: "Todo lo del plan Inicio" },
+          { icon: "users", label: "Gestión de clientes y proveedores" },
+          { icon: "barChart", label: "Reportes comerciales detallados" },
+          { icon: "package", label: "Control de compras y abastecimiento" },
+          { icon: "shield", label: "Usuarios y permisos por rol" },
+          { icon: "zap", label: "Alertas de inventario bajo" },
+          { icon: "devices", label: "Instalación en varias máquinas" },
+          { icon: "database", label: "Respaldo y sincronización de datos" },
+        ],
+      },
+      {
+        name: "A la medida",
+        price: "$799+",
+        note: "según requerimientos",
+        delivery: "Según alcance",
+        description: "Una plataforma diseñada alrededor de los procesos específicos de tu negocio.",
+        features: [
+          { icon: "zap", label: "Todo lo del plan Crecimiento" },
+          { icon: "checkCircle", label: "Facturación electrónica" },
+          { icon: "share", label: "Integración con dispositivos y periféricos" },
+          { icon: "sliders", label: "Módulos personalizados" },
+          { icon: "rocket", label: "Automatización de procesos" },
+          { icon: "mapPin", label: "Configuración de red y sucursales" },
+          { icon: "lineChart", label: "Analíticas avanzadas de ventas" },
+          { icon: "database", label: "Migración de tus datos actuales" },
+          { icon: "messageSquare", label: "Soporte prioritario" },
+        ],
+      },
+    ],
+    labels: {
+      deliveryLabel: "Entrega estimada: ",
+      mostPopular: "Más solicitado",
+      customBadge: "Máxima personalización",
+      customTagline: "Una operación conectada, preparada para crecer contigo.",
+      ctaInteresa: "Me interesa",
+      ctaPersonalizado: "Solicitar cotización",
+    },
   },
   en: {
     eyebrow: "POS systems · Point of sale",
@@ -49,11 +105,67 @@ const content = {
       ["globe", "Access anywhere", "Keep your operation available on computer, tablet or phone."],
     ] as const,
     scopeTitle: "Choose your system scope",
-    scopes: [
-      ["Starter", "$299", "Sales, products, basic inventory and cash closing.", ["Fast point of sale", "Product catalog", "Basic inventory", "Cash closing", "Install on any computer", "Browser access"]],
-      ["Growth", "$499", "Everything above plus customers, suppliers, reports and users.", ["Customers and suppliers", "Sales reports", "Purchase control", "Users with permissions", "Inventory alerts", "Install across multiple machines", "Backup and sync"]],
-      ["Custom", "Quote", "Integrations, electronic invoicing and modules specific to your business.", ["Electronic invoicing", "Device integrations", "Custom modules", "Automations", "Priority support", "Deploy on any device", "Network and branch setup"]],
-    ] as const,
+    tiers: [
+      {
+        name: "Starter",
+        price: "$299.99",
+        note: "reference price",
+        delivery: "1 – 2 weeks",
+        description: "Essential operations to start selling with order and control.",
+        features: [
+          { icon: "layout", label: "Fast point of sale" },
+          { icon: "package", label: "Central product catalog" },
+          { icon: "box", label: "Stock control" },
+          { icon: "checkCircle", label: "Accurate cash closing" },
+          { icon: "search", label: "Quick product search" },
+          { icon: "devices", label: "Install on any computer" },
+          { icon: "lock", label: "Secure browser access" },
+        ],
+      },
+      {
+        name: "Growth",
+        price: "$499.99",
+        note: "reference price",
+        delivery: "2 – 3 weeks",
+        description: "More visibility and control for growing businesses.",
+        features: [
+          { icon: "layout", label: "Everything in Starter" },
+          { icon: "users", label: "Customer and supplier management" },
+          { icon: "barChart", label: "Detailed sales reports" },
+          { icon: "package", label: "Purchase and restock control" },
+          { icon: "shield", label: "Role-based users and permissions" },
+          { icon: "zap", label: "Low-stock alerts" },
+          { icon: "devices", label: "Install across multiple machines" },
+          { icon: "database", label: "Data backup and sync" },
+        ],
+      },
+      {
+        name: "Custom",
+        price: "$799+",
+        note: "based on requirements",
+        delivery: "Based on scope",
+        description: "A platform designed around your business's specific processes.",
+        features: [
+          { icon: "zap", label: "Everything in Growth" },
+          { icon: "checkCircle", label: "Electronic invoicing" },
+          { icon: "share", label: "Device and peripheral integration" },
+          { icon: "sliders", label: "Custom modules" },
+          { icon: "rocket", label: "Process automation" },
+          { icon: "mapPin", label: "Network and branch setup" },
+          { icon: "lineChart", label: "Advanced sales analytics" },
+          { icon: "database", label: "Migration of your current data" },
+          { icon: "messageSquare", label: "Priority support" },
+        ],
+      },
+    ],
+    labels: {
+      deliveryLabel: "Estimated delivery: ",
+      mostPopular: "Most requested",
+      customBadge: "Maximum customization",
+      customTagline: "A connected operation, ready to grow with you.",
+      ctaInteresa: "I'm interested",
+      ctaPersonalizado: "Request a quote",
+    },
   },
 } as const;
 
@@ -75,7 +187,7 @@ export default function PosPage() {
         <h2 className="text-center text-3xl font-bold tracking-tight text-white sm:text-4xl">{t.benefitsTitle}</h2>
         <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">{t.benefits.map(([icon, title, description]) => <article key={title} className="rounded-2xl border border-line bg-card p-6 shadow-soft"><span className="grid size-11 place-items-center rounded-xl bg-brand-tint text-brand-300"><DynamicIcon name={icon} className="size-5" /></span><h3 className="mt-4 text-[15px] font-semibold text-strong">{title}</h3><p className="mt-1.5 text-sm leading-relaxed text-faint">{description}</p></article>)}</div>
       </Container></section>
-      <section className="bg-page py-20 sm:py-24"><Container><h2 className="text-center text-3xl font-bold tracking-tight text-white sm:text-4xl">{t.scopeTitle}</h2><div className="mx-auto mt-12 grid max-w-6xl gap-6 lg:grid-cols-3">{t.scopes.map(([name, price, description, benefits], i) => <article key={name} className={`relative flex h-full flex-col overflow-hidden rounded-3xl border p-8 transition-all duration-300 hover:-translate-y-1 ${i === 1 ? "border-brand-400/60 bg-brand-tint shadow-[0_0_60px_rgba(138,0,255,0.2)]" : i === 2 ? "border-brand-300/60 bg-gradient-to-br from-brand-tint to-card shadow-[0_0_60px_rgba(0,123,255,0.18)]" : "border-white/10 bg-card"}`}>{i === 1 && <span className="mb-5 w-fit rounded-full bg-brand-gradient px-3 py-1 text-xs font-bold text-white">{lang === "es" ? "Más popular" : "Most popular"}</span>}{i === 2 && <span className="mb-5 flex w-fit items-center gap-2 rounded-full border border-brand-300/40 bg-brand-tint px-3 py-1 text-xs font-bold text-brand-100"><DynamicIcon name="zap" className="size-3.5" />{lang === "es" ? "Máxima personalización" : "Maximum customization"}</span>}<p className="text-sm font-semibold uppercase tracking-[0.16em] text-brand-300">{name}</p><p className={`mt-3 font-black tracking-tight ${i === 2 ? "text-5xl text-brand-100" : "text-4xl text-white"}`}>{price}</p><div className="mt-5 flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-4 py-2.5 text-sm text-body"><DynamicIcon name="clock" className="size-4 text-neon-blue" />{lang === "es" ? "Implementación: " : "Delivery: "}<span className="font-bold text-white">{i === 0 ? "1–2 semanas" : i === 1 ? "2–3 semanas" : lang === "es" ? "Según alcance" : "Based on scope"}</span></div><p className="mt-5 min-h-12 text-sm leading-relaxed text-body">{description}</p>{i === 2 && <p className="mt-4 border-l-2 border-neon-pink/70 pl-3 text-sm font-medium text-brand-100">{lang === "es" ? "Una operación conectada, preparada para crecer contigo." : "A connected operation ready to grow with you."}</p>}<ul className="mt-7 flex-1 space-y-3 text-sm text-body">{benefits.map((benefit, benefitIndex) => <li key={benefit} className="flex items-center gap-3"><span className="grid size-6 shrink-0 place-items-center rounded-lg bg-brand-tint text-brand-300"><DynamicIcon name={featureIcon(benefit, benefitIndex)} className="size-3.5" /></span><span>{benefit}</span></li>)}</ul><Button href="/#contacto" className="mt-8 w-full justify-center" variant={i > 0 ? "primary" : "secondary"}>{i === 2 ? (lang === "es" ? "Cotizar mi sistema POS" : "Quote my POS system") : t.cta}<DynamicIcon name="arrowRight" className="size-4" /></Button></article>)}</div></Container></section>
+      <section className="bg-page py-20 sm:py-24"><Container><h2 className="text-center text-3xl font-bold tracking-tight text-white sm:text-4xl">{t.scopeTitle}</h2><PlanTiers id="pos" tiers={t.tiers} labels={t.labels} /></Container></section>
       <FinalCta />
       <ContactSection />
     </main>

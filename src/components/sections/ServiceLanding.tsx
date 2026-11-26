@@ -4,7 +4,7 @@ import { useLanguage } from "@/i18n/provider";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { DynamicIcon } from "@/components/ui/Icons";
-import { featureIcon } from "@/lib/feature-icon";
+import { PlanTiers } from "@/components/sections/PlanTiers";
 import { FinalCta } from "@/components/sections/FinalCta";
 import { ContactSection } from "@/components/sections/ContactSection";
 import { extraServices } from "@/data/extra-services";
@@ -44,24 +44,7 @@ export function ServiceLanding({ slug }: { slug: ExtraServiceSlug }) {
       <section className="bg-page py-20 sm:py-24">
         <Container>
           <h2 className="text-center text-3xl font-bold tracking-tight text-white sm:text-4xl">{t.scopeTitle}</h2>
-          <div className="mx-auto mt-12 grid max-w-6xl gap-6 lg:grid-cols-3">
-            {t.scopes.map(([name, price, description, features], i) => (
-              <article key={name} className={`relative flex h-full flex-col overflow-hidden rounded-3xl border p-8 transition-all duration-300 hover:-translate-y-1 ${i === 1 ? "border-brand-400/60 bg-brand-tint shadow-[0_0_60px_rgba(138,0,255,0.2)]" : i === 2 ? "border-transparent [background:linear-gradient(135deg,#17122f,#0b0a16)_padding-box,linear-gradient(135deg,#F5C64F,#4937CE,#C44577,#E46D33)_border-box] shadow-[0_0_70px_rgba(138,0,255,0.28),0_0_40px_rgba(239,10,185,0.16)] lg:-translate-y-2 lg:scale-[1.03] lg:hover:-translate-y-3" : "border-white/10 bg-card"}`}>
-                {i === 2 && <span className="mb-5 flex w-fit items-center gap-2 rounded-full bg-brand-gradient px-3 py-1 text-xs font-bold text-white shadow-[0_0_24px_rgba(239,10,185,0.35)]"><DynamicIcon name="zap" className="size-3.5" />{t.customBadge}</span>}
-                <h3 className="text-sm font-semibold uppercase tracking-[0.16em] text-brand-300">{name}</h3>
-                <p className={`mt-3 font-black tracking-tight ${i === 2 ? "text-5xl text-brand-100" : "text-4xl text-white"}`}>{price}</p>
-                <div className="mt-5 flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-4 py-2.5 text-sm text-body"><DynamicIcon name="clock" className="size-4 text-neon-blue" />{t.deliveryLabel}<span className="font-bold text-white">{t.delivery}</span></div>
-                <p className="mt-5 min-h-12 text-sm leading-relaxed text-body">{description}</p>
-                {i === 2 && <p className="mt-4 border-l-2 border-neon-pink/70 pl-3 text-sm font-medium text-brand-100">{t.customNote}</p>}
-                <ul className="mt-7 flex-1 space-y-3 text-sm text-body">
-                  {features.map((feature, featureIndex) => (
-                    <li key={feature} className="flex items-center gap-3"><span className="grid size-6 shrink-0 place-items-center rounded-lg bg-brand-tint text-brand-300"><DynamicIcon name={featureIcon(feature, featureIndex)} className="size-3.5" /></span><span>{feature}</span></li>
-                  ))}
-                </ul>
-                <Button href="/#contacto" className="mt-8 w-full justify-center" variant={i > 0 ? "primary" : "secondary"}>{i === 2 ? t.customCta : t.cta}<DynamicIcon name="arrowRight" className="size-4" /></Button>
-              </article>
-            ))}
-          </div>
+          <PlanTiers id={slug} tiers={t.tiers} labels={t.labels} />
         </Container>
       </section>
       <FinalCta />
